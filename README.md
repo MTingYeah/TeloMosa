@@ -39,7 +39,7 @@ output.fq.gz
 ```bash
 #!/bin/bash
 
-BED=./CHM13_chrEnd_500kb.bed # This file can be found in material
+BED=./CHM13_chrEnd_500kb.bed # This file can be found in this repository (TeloMosa/material)
 
 ## CHM13v2.mmi were required
 minimap2 \
