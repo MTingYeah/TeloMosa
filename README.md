@@ -34,4 +34,44 @@ Output:
 ```text
 output.fq.gz
 ```
+   Aligen extracted reads on T2T-CHM13 reference genome, and retention those mapped on end 500 kb.
    
+```bash
+#!/bin/bash
+
+BED=./CHM13_chrEnd_500kb.bed # This file can be found in material
+
+## CHM13v2.mmi were required
+minimap2 \
+    -ax map-ont \
+    -t 28 \
+    CHM13_v2.mmi \ 
+    output.fq.gz \
+    > output.sam
+
+samtools view \
+    -S -b -h \
+    output.sam \
+    > output.bam
+
+samtools sort \
+    -@ 16 \
+    output.bam \
+    -o output.sorted.bam
+
+samtools index output.sorted.bam
+
+samtools view \
+    -b \
+    -L ${BED} \
+    output.sorted.bam \
+    > output.2telo.500kb.bam
+
+samtools index output.2telo.500kb.bam
+
+samtools fastq \
+    output.2telo.500kb.bam | \
+    gzip -c > output_2telo_500kb.fastq.gz
+```
+   
+
