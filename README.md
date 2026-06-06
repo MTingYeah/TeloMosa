@@ -4,19 +4,21 @@
 ![workflow](figure/TeloMosa_Schematic_diagram.svg)
 
 
-TeloMosa is a bioinformatic tool for measuring telomere length and identifying TelC–TelG mosaic telomeric repeats (mTRs) from Oxford Nanopore long-read sequencing data.
+TeloMosa is a bioinformatic toolkit for quantifying telomeric repeat length and identifying TelC–TelG mosaic telomeric repeats (mTRs) from Oxford Nanopore long-read sequencing data.
 
 ## Requirements
 
 1. Python >=3.8.0
 2. minimap2 (v2.24)
 3. samtools (v1.13)
+4. numpy
+5. biopython
 
 ## Workflows
 
 ### Extract telomeric reads
 
-   Use basecalled nanopore fastq.gz file as input, reads with >=2 TelC or TelG were extracted and saved as output.fq.gz
+Using a basecalled Nanopore FASTQ file as input, reads containing at least two consecutive TelG (TTAGGG) or TelC (CCCTAA) repeats are extracted and saved to output.fq.gz.
 
 ```bash
 python3 extract_telomeric_reads_ONT_DNA.py \
@@ -34,8 +36,8 @@ Output:
 ```text
 output.fq.gz
 ```
-   Aligen extracted reads on T2T-CHM13 reference genome, and retention those mapped on end 500 kb.
-   
+Align the extracted reads to the T2T-CHM13 reference genome and retain only reads mapped within the terminal 500 kb of chromosome ends.
+
 ```bash
 #!/bin/bash
 
@@ -91,7 +93,7 @@ output.telomeric_repeat_length.tsv
 
 ### Identify TelC–TelG mosaic telomeric repeats (mTRs)
 
-Reads are scanned using a telomere boundary detection algorithm based on sliding-window analysis of telomeric sequence composition. Reads containing  signals from both TelG and TelC in telomeric repeats are classified as TelC–TelG mosaic telomeric repeats (mTRs) reads. To improve specificity, only reads containing at least six consecutive telomeric repeats on both strand types are retained. 
+Reads are scanned using a telomere boundary detection algorithm based on sliding-window analysis of telomeric sequence composition. Reads containing signals from both TelG and TelC telomeric repeats are classified as TelC–TelG mosaic telomeric repeat (mTR) reads. To improve specificity, only reads containing at least six consecutive telomeric repeats on both strand types are retained. 
 
 
 ```bash
