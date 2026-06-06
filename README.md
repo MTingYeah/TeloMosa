@@ -1,4 +1,4 @@
 # TeloMosa
 ## Workflow
 
-![workflow](figures/workflow.png)
+![workflow](figure/workflow.png)
