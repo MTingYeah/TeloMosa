@@ -18,6 +18,7 @@ TeloMosa is a bioinformatic toolkit for quantifying telomeric repeat length and 
 
 ```bash
 git clone https://github.com/MTingYeah/TeloMosa.git
+cd TeloMosa
 ```
 
 ## Workflows
@@ -86,7 +87,7 @@ samtools fastq \
 Telomeric repeat length was estimated using a sliding-window approach. A 12-bp window, corresponding to two consecutive telomeric repeats, was scanned across each read with a step size of 6 bp. Both G-rich (TTAGGG) and C-rich (CCCTAA) telomeric repeats were considered. Up to two mismatches were allowed within each 12-bp window. Adjacent telomeric windows were merged into continuous telomeric blocks, and only blocks containing at least four consecutive telomeric repeats were retained. The lengths of all retained telomeric blocks within a read were summed and reported as the estimated telomeric repeat length of that read.
 
 ```bash
-python3 TeloMoas_length_calculation.py \
+python3 scripts/TeloMoas_length_calculation.py \
     output_2telo_500kb.fastq.gz \
     -o output
 ```
@@ -103,7 +104,7 @@ Reads are scanned using a telomere boundary detection algorithm based on sliding
 
 
 ```bash
-python3 ../script/TeloMosa_mosaic_identification.py \
+python3 scripts/TeloMosa_mosaic_identification.py \
   output_2telo_500kb.fastq.gz \
   output_2telo_500kb.mTRs.fastq.gz \
   --output_ids output_2telo_500kb.mTRs_readID.txt
