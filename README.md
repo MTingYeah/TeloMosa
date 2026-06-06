@@ -14,7 +14,7 @@ TeloMosa is a bioinformatic tool for measuring telomere length and identifying T
 
 ## Workflows
 
-1. Extract telomeric reads
+### Extract telomeric reads
 
    Use basecalled nanopore fastq.gz file as input, reads with >=2 TelC or TelG were extracted and saved as output.fq.gz
 
@@ -73,7 +73,7 @@ samtools fastq \
     output.2telo.500kb.bam | \
     gzip -c > output_2telo_500kb.fastq.gz
 ```
-2.2 Measure Telomere Length
+### Measure Telomere Length
 
 Telomeric repeat length was estimated using a sliding-window approach. A 12-bp window, corresponding to two consecutive telomeric repeats, was scanned across each read with a step size of 6 bp. Both G-rich (TTAGGG) and C-rich (CCCTAA) telomeric repeats were considered. Up to two mismatches were allowed within each 12-bp window. Adjacent telomeric windows were merged into continuous telomeric blocks, and only blocks containing at least four consecutive telomeric repeats were retained. The lengths of all retained telomeric blocks within a read were summed and reported as the estimated telomeric repeat length of that read.
 
