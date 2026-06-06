@@ -14,6 +14,12 @@ TeloMosa is a bioinformatic toolkit for quantifying telomeric repeat length and 
 4. numpy
 5. biopython
 
+## Installation
+
+```bash
+git clone https://github.com/MTingYeah/TeloMosa.git
+```
+
 ## Workflows
 
 ### Extract telomeric reads
