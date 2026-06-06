@@ -110,6 +110,16 @@ python3 scripts/TeloMosa_mosaic_identification.py \
   --output_ids output_2telo_500kb.mTRs_readID.txt
 ```
 
+### Identify junction sequences in mTRs reads
+
+This script identifies junction sequences between adjacent TelG and TelC telomeric repeat blocks within mTR reads. Canonical TelG and TelC motifs are first detected along each read and grouped into telomeric blocks. Whenever two neighboring blocks belong to different strand types (TelG→TelC or TelC→TelG), the intervening sequence (≤12 bp) is extracted and reported as a junction sequence. The junction length and transition direction are recorded for each event.
+
+```bash
+python3 TeloMosa_identify_junction_sequences.py \
+    output_2telo_500kb.mTRs.fastq.gz \
+    > output.junction.tsv
+```
+
 
 
 
