@@ -91,6 +91,17 @@ output.telomeric_repeat_length.tsv
 
 ### Identify TelC–TelG mosaic telomeric repeats (mTRs)
 
+# TeloMosa
+
+Reads are scanned using a telomere boundary detection algorithm based on sliding-window analysis of telomeric sequence composition. Reads containing  signals from both TelG and TelC in telomeric repeats are classified as TelC–TelG mosaic telomeric repeats (mTRs) reads. To improve specificity, only reads containing at least six consecutive telomeric repeats on both strand types are retained. 
+
+
+```bash
+python3 ../script/TeloMosa_mosaic_identification.py \
+  output_2telo_500kb.fastq.gz \
+  output_2telo_500kb.mTRs.fastq.gz \
+  --output_ids output_2telo_500kb.mTRs_readID.txt
+```
 
 
 
