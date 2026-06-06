@@ -73,5 +73,9 @@ samtools fastq \
     output.2telo.500kb.bam | \
     gzip -c > output_2telo_500kb.fastq.gz
 ```
-   
+2.2 Measure Telomere Length
+
+
+
+
 
