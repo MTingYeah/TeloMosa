@@ -45,8 +45,8 @@ BED=./CHM13_chrEnd_500kb.bed # This file can be found in material
 minimap2 \
     -ax map-ont \
     -t 28 \
-    CHM13_v2.mmi \ 
-    output.fq.gz \
+    CHM13_v2.mmi \
+   output.fq.gz \
     > output.sam
 
 samtools view \
