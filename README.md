@@ -89,6 +89,7 @@ Output:
 output.telomeric_repeat_length.tsv
 ```
 
+### Identify TelC–TelG mosaic telomeric repeats (mTRs)
 
 
 
