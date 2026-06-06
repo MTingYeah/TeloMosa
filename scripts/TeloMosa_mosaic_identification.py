@@ -547,13 +547,7 @@ def extract_fused_reads(input_fastq, output_fastq, output_ids=None):
 
     print("Done.")
     print(f"Input reads: {total}")
-    print(f"Fused reads (-10): {fused}")
-    print(f"Positive teloNP reads: {positive}")
-    print(f"Init/no-boundary errors (-1): {init_error}")
-    print(f"Strand type errors (-20): {strand_error}")
-    print(f"Seq not found errors (-1000): {seq_not_found}")
-    print(f"Output FASTQ: {output_fastq}")
-
+    print(f"Fused reads : {fused}")
     if output_ids:
         print(f"Output read IDs: {output_ids}")
 
