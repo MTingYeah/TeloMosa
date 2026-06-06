@@ -75,6 +75,23 @@ samtools fastq \
 ```
 2.2 Measure Telomere Length
 
+Telomeric repeat length was estimated using a sliding-window approach. A 12-bp window, corresponding to two consecutive telomeric repeats, was scanned across each read with a step size of 6 bp. Both G-rich (TTAGGG) and C-rich (CCCTAA) telomeric repeats were considered. Up to two mismatches were allowed within each 12-bp window. Adjacent telomeric windows were merged into continuous telomeric blocks, and only blocks containing at least four consecutive telomeric repeats were retained. The lengths of all retained telomeric blocks within a read were summed and reported as the estimated telomeric repeat length of that read.
+
+```bash
+python3 TeloMoas_length_calculation.py \
+    output_2telo_500kb.fastq.gz \
+    -o output
+```
+
+Output:
+
+```text
+output.telomeric_repeat_length.tsv
+```
+
+
+
+
 
 
 
